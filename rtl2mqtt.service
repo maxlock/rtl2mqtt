@@ -1,0 +1,11 @@
+[Unit]
+Description=rtl_433 to MQTT bridge
+After=network.target
+
+[Service]
+ExecStart=/usr/local/bin/rtl2mqtt.py
+PIDFile=/var/run/rtl2mqtt.pid
+Restart=on-abort
+
+[Install]
+WantedBy=default.target
