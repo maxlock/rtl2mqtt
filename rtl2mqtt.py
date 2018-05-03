@@ -11,6 +11,7 @@ from subprocess import Popen, PIPE, STDOUT
 def do_something():
   mqttc = paho.Client()
   mqttc.connect('homeassistant.technoghetto.int')
+  mqttc.loop_start()
   process = Popen(['/usr/local/bin/rtl_433','-qG','-F','json'], stdin=PIPE, stdout=PIPE, stderr=STDOUT)
   for line in iter(process.stdout.readline, ''):
     msg={}
